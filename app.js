@@ -42,7 +42,6 @@ app.get("/search/:movieName", (req, res) => {
   fs.readFile('./movieDescriptions.txt','utf8',(err, data) => {
     if (err) { return console.log(err)}
     data.split('\n').forEach(element => {
-      // console.log(element.toLowerCase().includes(movieSearch.toLowerCase()))
       if (element.toLowerCase().includes(movieSearch.toLowerCase())) {
         let movieList = element.split(':')
         res.render("pages/searchResult.ejs", {movieList})
